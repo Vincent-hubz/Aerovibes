@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Service - Streetwear Fashion</title>
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Copy main_shop.html styles for layout consistency */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f0f0f0; color: #333; }
+    .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background-color: #000; border-bottom: 2px solid #ff3e3e; }
+    .left-icons { display: flex; align-items: center; gap: 25px; }
+    .icon-container { display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; cursor: pointer; transition: transform 0.3s ease; }
+    .icon-container span { color: #fff; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+    .icon-container:hover { transform: translateY(-2px); }
+    .search-container { flex: 1; max-width: 500px; margin: 0 30px; background-color: #ffffff; border-radius: 8px; display: flex; align-items: center; padding: 8px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .search-container input { flex: 1; border: none; background: transparent; font-size: 14px; outline: none; color: #333; }
+    .search-container i { color: #666; }
+    .right-icons { display: flex; gap: 25px; }
+    .footer { background: #333; color: #fff; padding: 20px; margin-top: 40px; }
+    .footer-links { display: flex; justify-content: space-around; max-width: 1200px; margin: 0 auto; }
+    .footer-section { font-size: 12px; }
+    .footer-section h4 { margin-bottom: 10px; }
+    .footer-section a { color: #fff; text-decoration: none; display: block; margin: 5px 0; }
+    @media (max-width: 768px) { .header { padding: 10px 15px; } .left-icons { gap: 15px; } .icon-container span { font-size: 10px; } .search-container { margin: 0 15px; padding: 6px 12px; } .right-icons { gap: 15px; } .icon-container i { font-size: 18px; } }
+    @media screen and (max-width: 480px) { .header { padding: 8px 10px; } .left-icons { gap: 10px; } .right-icons { gap: 10px; } .icon-container img { max-height: 16px; } .icon-container span { font-size: 8px; } .footer-links { flex-direction: column; align-items: center; } }
+    .customer-service-container { max-width: 1200px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 40px 30px; }
+    .customer-service-title { text-align: center; font-size: 32px; font-weight: bold; color: #000; margin-bottom: 10px; }
+    .customer-service-subtitle { text-align: center; color: #666; font-size: 16px; margin-bottom: 30px; }
+    .customer-service-sections { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
+    .customer-service-section { flex: 1 1 300px; min-width: 280px; max-width: 400px; background: #fafafa; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); padding: 24px 20px; margin-bottom: 20px; }
+    .customer-service-section h3 { font-size: 20px; color: #ff3e3e; margin-bottom: 10px; }
+    .customer-service-section ul { list-style: none; padding: 0; }
+    .customer-service-section li { margin-bottom: 10px; color: #333; font-size: 15px; }
+    .customer-service-section a { color: #3e4aff; text-decoration: underline; }
+    .customer-service-section a:hover { color: #ff3e3e; }
+    .customer-service-contact { text-align: center; margin-top: 30px; font-size: 16px; color: #333; }
+    .customer-service-contact strong { color: #ff3e3e; }
+
+    /* Enhanced Order & Shipping Section */
+    .order-shipping-section {
+      background: linear-gradient(135deg, #fff7f0 0%, #ffe3e3 100%);
+      box-shadow: 0 4px 16px rgba(255, 62, 62, 0.08);
+      border: 1.5px solid #ffb3b3;
+      animation: fadeInUp 0.8s cubic-bezier(.39,.575,.565,1) both;
+    }
+    .order-shipping-section h3 {
+      letter-spacing: 1px;
+    }
+    .order-shipping-section ul li a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.2s, transform 0.2s;
+      font-weight: 500;
+    }
+    .order-shipping-section ul li a i {
+      color: #ff3e3e;
+      font-size: 16px;
+      transition: color 0.2s;
+    }
+    .order-shipping-section ul li a:hover {
+      color: #ff3e3e;
+      transform: translateX(6px) scale(1.05);
+    }
+    .order-shipping-section ul li a:hover i {
+      color: #3e4aff;
+    }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Add homepage banner styles */
+    .homepage-banner {
+      margin: 30px auto 0 auto;
+      max-width: 1200px;
+      width: 95%;
+    }
+    .banner-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .banner-img {
+      width: 32%;
+      border-radius: 8px;
+      object-fit: cover;
+      height: 220px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .promo-banner {
+      width: 100%;
+      margin: 0 auto;
+    }
+    .promo-img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      height: 180px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    @media (max-width: 768px) {
+      .banner-img, .promo-img { height: 120px; }
+      .banner-row { gap: 5px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header copied from main_shop.html -->
+  <header class="header">
+    <div class="left-icons">
+      <a href="#" class="icon-container menu-icon-container">
+        <i class="fas fa-bars menu-icon" style="color: #fff; font-size: 20px;"></i>
+        <span>Menu</span>
+      </a>
+      <a href="main_shop.html" class="icon-container">
+        <i class="fas fa-store" style="color: #fff; font-size: 20px;"></i>
+        <span>Shop</span>
+      </a>
+      <a href="blogpage.html" class="icon-container">
+        <i class="fas fa-blog" style="color: #fff; font-size: 20px;"></i>
+        <span>Blog</span>
+      </a>
+    </div>
+    <div class="search-container">
+      <input type="text" placeholder="Search for products...">
+      <i class="fas fa-search" style="font-size: 18px;"></i>
+    </div>
+    <div class="right-icons">
+      <a href="CART_PAGE.html" class="icon-container" style="position: relative;">
+        <i class="fas fa-shopping-cart" style="color: #fff; font-size: 20px;"></i>
+        <span>Cart</span>
+        <span class="cart-count" style="position: absolute; top: -5px; right: -5px; background-color: #ff3e3e; color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 12px; display: none; justify-content: center; align-items: center; font-weight: bold;">0</span>
+      </a>
+      <a href="account.html" class="icon-container">
+        <i class="fas fa-user" style="color: #fff; font-size: 20px;"></i>
+        <span>Account</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Banner Section (copying homepage style) -->
+  <div class="homepage-banner">
+    <div class="banner-row" style="gap:0;">
+      <img src="Homepage.jpg" alt="Homepage Banner" class="banner-img" style="width:100%;">
+    </div>
+  </div>
+
+  <!-- Service Icons Row -->
+  <div class="service-icons-row" style="display:flex; justify-content:center; gap:40px; margin:30px 0;">
+    <div class="icon-container">
+      <i class="fas fa-ruler-combined" style="font-size:32px; color:#222;"></i>
+      <span style="margin-top:8px; font-size:15px; color:#222;">Size Guide</span>
+    </div>
+    <div class="icon-container">
+      <i class="fas fa-shipping-fast" style="font-size:32px; color:#222;"></i>
+      <span style="margin-top:8px; font-size:15px; color:#222;">Shipping</span>
+    </div>
+    <div class="icon-container">
+      <i class="fas fa-credit-card" style="font-size:32px; color:#222;"></i>
+      <span style="margin-top:8px; font-size:15px; color:#222;">Payments</span>
+    </div>
+    <div class="icon-container">
+      <i class="fas fa-question-circle" style="font-size:32px; color:#222;"></i>
+      <span style="margin-top:8px; font-size:15px; color:#222;">FAQs</span>
+    </div>
+  </div>
+
+  <!-- Problem Search Bar -->
+  <div style="display:flex; justify-content:center; margin-bottom:30px;">
+    <div style="width:420px; background:#f5f5f5; border-radius:24px; display:flex; align-items:center; padding:10px 20px;">
+      <input type="text" placeholder="Describe your problem....." style="flex:1; border:none; background:transparent; font-size:15px; outline:none;">
+      <i class="fas fa-search" style="color:#888; font-size:18px;"></i>
+    </div>
+  </div>
+
+  <div class="customer-service-container">
+    <div class="customer-service-title">Customer Service</div>
+    <div class="customer-service-subtitle">How can we help you today?</div>
+    <div class="customer-service-sections">
+      <div class="customer-service-section order-shipping-section">
+        <h3>Order & Shipping</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-shipping-fast"></i> Track Your Order</a></li>
+          <li><a href="#"><i class="fas fa-info-circle"></i> Shipping Information</a></li>
+          <li><a href="#"><i class="fas fa-clock"></i> Delivery Times</a></li>
+          <li><a href="#"><i class="fas fa-list-alt"></i> Order Status</a></li>
+        </ul>
+      </div>
+      <div class="customer-service-section">
+        <h3>Returns & Exchanges</h3>
+        <ul>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">How to Return</a></li>
+          <li><a href="#">Exchange Process</a></li>
+          <li><a href="#">Refunds</a></li>
+        </ul>
+      </div>
+      <div class="customer-service-section">
+        <h3>Payment & Security</h3>
+        <ul>
+          <li><a href="#">Payment Methods</a></li>
+          <li><a href="#">Secure Shopping</a></li>
+          <li><a href="#">Promo Codes</a></li>
+          <li><a href="#">Invoice Requests</a></li>
+        </ul>
+      </div>
+      <div class="customer-service-section">
+        <h3>FAQs & Support</h3>
+        <ul>
+          <li><a href="#">Frequently Asked Questions</a></li>
+          <li><a href="#">Contact Customer Support</a></li>
+          <li><a href="#">Account Help</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="customer-service-contact">
+      Need more help? Email us at <strong>support@aerovibez.com</strong> or call <strong>+63 912 345 6789</strong>.
+    </div>
+  </div>
+
+  <!-- Footer copied from main_shop.html -->
+  <footer class="footer">
+    <div class="footer-links">
+      <div class="footer-section">
+        <h4>Privacy Policy</h4>
+        <a href="privacy_policy.html">Data Collection & Usage</a>
+        <a href="terms_conditions.html">Terms & Conditions</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <a href="contact.html">Phone Number</a>
+        <a href="social_media.html">Social Media Links</a>
+      </div>
+      <div class="footer-section">
+        <h4>About Us</h4>
+        <a href="about_us.html">Mission & Vision</a>
+        <a href="ethics_practices.html">Ethics Practices</a>
+      </div>
+      <div class="footer-section">
+        <h4>Customer Service</h4>
+        <a href="returns_policy.html">Returns Policy</a>
+        <a href="payment_methods.html">Payment Methods</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart and sidebar scripts for header/footer functionality -->
+  <script>
+    (function() {
+      try {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let hasChanges = false;
+        cart.forEach(item => { if (!item.quantity || item.quantity < 1) { item.quantity = 1; hasChanges = true; } });
+        if (hasChanges) { localStorage.setItem('cart', JSON.stringify(cart)); }
+      } catch(e) { console.error('Error fixing cart quantities:', e); }
+    })();
+  </script>
+  <script src="unified_cart.js"></script>
+  <script src="javascript_sidebar.js"></script>
+</body>
+</html> 
