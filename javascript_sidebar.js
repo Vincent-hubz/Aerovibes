@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li><a href="womens_new_arrival.html">WOMENS</a></li>
                     <li><a href="kids_new_arrival.html">KIDS</a></li>
                     <li><a href="blogpage.html">BLOG</a></li>
-                    <li><a href="cart.html">CART</a></li>
+                    <li><a href="CART_PAGE.html">CART</a></li>
                     <li><a href="customer_service.html">CUSTOMER SERVICE</a></li>
                 </ul>
             </div>
